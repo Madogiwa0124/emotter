@@ -71,3 +71,43 @@
     }
   }
 }
+
+.post-new {
+  background-color: #F8F8F8;
+  padding: 1em;
+
+  .post-area {
+    @media screen and (min-width:768px) {
+      max-width: 70%;
+    }
+    margin: auto;
+  }
+
+  .title {
+    background-color: #FFFFFF;
+    font-size: 1.7em;
+    padding: 0.5em;
+    font-weight: bold;
+    border-radius: 0.2em;
+  }
+
+  .thumbnail {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .post-images {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .margin-right {
+      margin: 0em 0em 1em 0em;
+    }
+    .margin-left {
+      margin: 0em 1em 0em 0em;
+    }
+  }
+}

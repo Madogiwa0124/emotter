@@ -1,1 +1,44 @@
-new
+<div class="post-new">
+  <div class="post-area">
+    <h3 class="title center text-brown">
+      エモいツイートを作る
+      <i class="fas fa-pen-nib"></i>
+    </h3>
+    <form>
+      <div class="form-group">
+        <label for="title">タイトル</label>
+        <input id="title" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="tags">タグを付ける</label>
+        <input id="tags" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="content">本文</label>
+        <textarea id="content" type="text" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>サムネイル画像</label>
+        <div class="thumbnail">
+          <%= image_tag('sample_card_brown.png')%>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>投稿される画像</label>
+        <div class="post-images">
+          <div class="flex">
+            <div class="post-image margin-left"><%= image_tag('sample_card_brown.png')%></div>
+            <div class="post-image margin-right"><%= image_tag('sample_card_brown.png')%></div>
+          </div>
+          <div class="flex">
+            <div class="post-image margin-left"><%= image_tag('sample_card_brown.png')%></div>
+            <div class="post-image margin-right"><%= image_tag('sample_card_brown.png')%></div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-block bg-brown">
+        公開する <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>
