@@ -1,0 +1,59 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN"
+}
+
+.text-brown {
+  color: #7C4106;
+}
+
+.bg-brown {
+  background-color: #7C4106;
+  color: #FFFFFF;
+}
+
+.bg-white {
+  color: #7C4106;
+  background-color: #FFFFFF;
+}
+
+.right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav {
+  background-color: #F0E8DC;
+  padding: 0.5em;
+
+  a {
+    color: #7C4106;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #7C4106;
+    text-decoration: none;
+  }
+
+  .brand {
+    margin-right: auto;
+    font-weight: bold;
+  }
+
+  .navbar-links {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .icon-with-text {
+    width: 5em;
+    text-align: center;
+    span {
+      font-size: small;
+    }
+  }
+}

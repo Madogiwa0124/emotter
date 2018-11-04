@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/posts/:id', to: 'posts#show'
+  get '/post', to: 'posts#show'
   get '/posts', to: 'posts#index'
-  get '/posts', to: 'posts#new'
+  get '/posts/new', to: 'posts#new'
 end

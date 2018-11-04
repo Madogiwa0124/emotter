@@ -1,1 +1,49 @@
-index
+<div class="post-index">
+  <div class="post-header">
+    <div class="quotation bg-white">
+      <div class="author">- ひとこと -</div>
+      <div class="content">エモさとは弱さであり、人として生きる強さである。</div>
+      <div class="author">written by @名無しのエモリスト</div>
+    </div>
+    <div class="search-item">
+      <h5>
+        <i class="fas fa-book-open text-brown"></i>
+        キーワードで探す
+      </h5>
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="e.g. 物語 日常">
+          <div class="input-group-append">
+            <button type="submit" class="btn bg-brown" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="search-item">
+      <h5>
+        <i class="fas fa-tags text-brown"></i>
+        タグで探す
+      </h5>
+      <div class="tag-area">
+        <a href="#" class="tag">#小説</a>
+        <a href="#" class="tag">#物申す</a>
+        <a href="#" class="tag">#事件へのコメント</a>
+        <a href="#" class="tag">#男女の違い</a>
+        <a href="#" class="tag">#小説</a>
+        <a href="#" class="tag">#物申す</a>
+        <a href="#" class="tag">#男女の違い</a>
+        <a href="#" class="tag">#男女の違い</a>
+        <a href="#" class="tag">#小説</a>
+        <a href="#" class="tag">#物申す</a>
+        <a href="#" class="tag">#男女の違い</a>
+      </div>
+    </div>
+  </div>
+  <div class="post-list">
+    <%= render 'post_card' %>
+    <%= render 'post_card' %>
+    <%= render 'post_card' %>
+  </div>
+</div>
