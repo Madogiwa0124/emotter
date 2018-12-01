@@ -39,14 +39,14 @@
           画像で読む
         </h5>
         <div class="post-images">
-          <div class="flex">
-            <div class="post-image margin-left"><%= image_tag('sample_card_brown.png')%></div>
-            <div class="post-image margin-right"><%= image_tag('sample_card_brown.png')%></div>
-          </div>
-          <div class="flex">
-            <div class="post-image margin-left"><%= image_tag('sample_card_brown.png')%></div>
-            <div class="post-image margin-right"><%= image_tag('sample_card_brown.png')%></div>
-          </div>
+          <% @post.images.each_slice(2).to_a.each do |image_row| %>
+            <div class="flex">
+              <% image_row.each do |image| %>
+                <div class="post-image margin-left"><%= image_tag(post_image_path(image))%></div>
+              <% end %>
+            </div>
+            <br>
+          <% end %>
         </div>
       </div>
     </div>
