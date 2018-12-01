@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  acts_as_taggable
   has_many :images, class_name: 'PostImage'
   validates :title, presence: true
   validates :body, presence: true
