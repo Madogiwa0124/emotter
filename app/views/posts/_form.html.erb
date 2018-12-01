@@ -1,0 +1,17 @@
+<%= form_with model: post do |f| %>
+  <div class='form-group'>
+    <label for="title">タイトル</label>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="tag_list">タグを付ける</label>
+    <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), class: "form-control" %>
+  </div>
+  <div class='form-group'>
+    <label for="body">本文</label>
+    <%= f.text_area :body, class: 'form-control', size: "20x10" %>
+  </div>
+  <%= f.button type: "submit", class: "btn btn-block bg-brown" do %>
+    公開する <i class="fas fa-paper-plane"></i>
+  <% end %>
+<% end %>

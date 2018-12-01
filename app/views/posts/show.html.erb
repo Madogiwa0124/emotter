@@ -1,7 +1,7 @@
 <div class="post-show">
   <div class="post-area">
     <div class="thumbnail">
-      <%= image_tag('sample_card_brown.png')%>
+      <%= image_tag(thumbnail_post_path(@post))%>
     </div>
     <div class="post-info">
       <div class="right">Written by @Twikko</div>
@@ -17,9 +17,9 @@
           タグ
         </h5>
         <div class="tag-area">
-          <span class="tag">#日常</span>
-          <span class="tag">#日常</span>
-          <span class="tag">#日常</span>
+          <% @post.tag_list.each do |tag| %>
+            <span class="tag"><%= tag %></span>
+          <% end %>
         </div>
       </div>
     </div>
@@ -30,13 +30,7 @@
           文字で読む
         </h5>
         <div class="post-content">
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
-          ある日の午後、電車で通学中にお腹を抱えた…
+          <%= simple_format(h(@post.body)) %>
         </div>
       </div>
       <div class="post-item">
