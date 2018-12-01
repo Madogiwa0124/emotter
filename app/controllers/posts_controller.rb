@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     prepare_thumbnail
+    prepare_post_images
     if @post.save
       redirect_to post_path(@post)
     else
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.attributes = post_params
     prepare_thumbnail
+    prepare_post_images
     if @post.save
       redirect_to post_path(@post)
     else
@@ -46,6 +48,16 @@ class PostsController < ApplicationController
     temp_thumbnail = ImageBuilder::PostThumbnail.build(@post.title)
     @post.thumbnail = temp_thumbnail.tempfile.open.binmode.read
     @post.ctype = temp_thumbnail.mime_type
+  end
+
+  def prepare_post_images
+    temp_images = ImageBuilder::PostImages.build(@post.body)
+    ActiveRecord::Base.transaction do
+      @post.images.destroy_all
+      temp_images.each do |image|
+        @post.images.create!(image: image.tempfile.open.binmode.read, ctype: image.mime_type)
+      end
+    end
   end
 
   def post_params

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
       get :thumbnail
     end
   end
+  resources :post_images
 end
