@@ -1,10 +1,15 @@
+$bg-color-white: #F8F8F8;
+$bg-color-gray: #BBBBBB;
+$border-color-gray: #DDDDDD;
+$white: #FFFFFF;
+
 .post-index {
-  background-color: #F8F8F8;
+  background-color: $bg-color-white;
   padding: 1em;
 
   .tag {
-    color: #FFFFFF;
-    background-color: #BBBBBB;
+    color: $white;
+    background-color: $bg-color-gray;
     padding: 0.2em;
   }
 
@@ -37,7 +42,7 @@
     }
 
     .tag-area {
-      background-color: #FFFFFF;
+      background-color: $white;
       padding: 0.5em;
       line-height: 180%;
       border-radius: 0.2em;
@@ -60,7 +65,7 @@
       }
 
       .card-body {
-        border-top: 1px #DDDDDD solid;
+        border-top: 1px $border-color-gray solid;
         padding: 0.5em;
 
         .card-text {
@@ -73,7 +78,7 @@
 }
 
 .post-new {
-  background-color: #F8F8F8;
+  background-color: $bg-color-white;
   padding: 1em;
 
   .post-area {
@@ -84,7 +89,7 @@
   }
 
   .title {
-    background-color: #FFFFFF;
+    background-color: $white;
     font-size: 1.7em;
     padding: 0.5em;
     font-weight: bold;
@@ -113,8 +118,13 @@
 }
 
 .post-show {
-  background-color: #F8F8F8;
+  background-color: $bg-color-white;
   padding: 1em;
+
+  a:hover {
+    color: $white;
+    text-decoration: none;
+  }
 
   .post-area {
     @media screen and (min-width:768px) {
@@ -123,19 +133,39 @@
     margin: auto;
   }
 
+  .card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      border-top: 1px $border-color-gray solid;
+      padding: 0.5em;
+
+      .card-text {
+        margin-bottom: 0em;
+        padding: 0.1em;
+      }
+    }
+  }
+
   .post-info {
     margin: 0.5em 0em 0.5em 0em;
 
     .tag-area {
-      background-color: #FFFFFF;
+      background-color: $white;
       margin-bottom: 0.5em;
       padding: 0.5em;
       line-height: 180%;
       border-radius: 0.2em;
 
       .tag {
-        color: #FFFFFF;
-        background-color: #BBBBBB;
+        color: $white;
+        background-color: $bg-color-gray;
         padding: 0.2em;
       }
     }
@@ -155,7 +185,7 @@
   .post-body {
     .post-content {
       padding: 0.5em;
-      background-color: #FFFFFF;
+      background-color: $white;
     }
 
     .post-images {

@@ -1,11 +1,32 @@
 <div class="post-show">
   <div class="post-area">
-    <div class="thumbnail">
-      <%= image_tag(thumbnail_post_path(@post))%>
+    <div class="card">
+      <div class="thumbnail">
+        <%= image_tag(thumbnail_post_path(@post))%>
+      </div>
+      <div class="card-body">
+        <div class="card-text flex">
+          <div>
+            <i class="fas fa-pen-nib text-brown"></i>
+            <%= @post.body.length %>文字
+          </div>
+          <div>
+            <i class="fas fa-shoe-prints text-brown"></i>
+            <%= @post.page_view&.view_count || 0 %>PV
+          </div>
+          <div>
+            <i class="fas fa-heart text-brown"></i> 100いいね
+          </div>
+        </div>
+        <div class="card-text right">Written by @Twikko</div>
+      </div>
     </div>
     <div class="post-info">
-      <div class="right">Written by @Twikko</div>
       <div class="post-item">
+        <button class="btn btn-block bg-pink">
+          この投稿に「スキ」を送る
+          <i class="fas fa-heart"></i>100
+        </button>
         <button class="btn btn-block bg-brown">
           Twitterで共有する
           <i class="fab fa-twitter"></i>
@@ -46,6 +67,12 @@
               <% end %>
             </div>
             <br>
+          <% end %>
+        </div>
+        <div class="post-item">
+          <%= link_to edit_post_path(@post), class: "btn btn-block bg-brown" do %>
+            投稿を編集する
+            <i class="fas fa-pen-nib"></i>
           <% end %>
         </div>
       </div>

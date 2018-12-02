@@ -9,7 +9,8 @@
         <%= post.body.length %>文字
       </div>
       <div>
-        <i class="fas fa-shoe-prints text-brown"></i> 100PV
+        <i class="fas fa-shoe-prints text-brown"></i>
+        <%= post.page_view&.view_count || 0 %>PV
       </div>
       <div>
         <i class="fas fa-heart text-brown"></i> 100いいね
