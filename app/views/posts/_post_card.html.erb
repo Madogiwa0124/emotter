@@ -1,11 +1,12 @@
 <div class="card">
-  <a href="/post">
-    <%= image_tag('sample_card_brown.png')%>
-  </a>
+  <%= link_to post_path(post) do %>
+    <%= image_tag(thumbnail_post_path(post)) %>
+  <% end %>
   <div class="card-body">
     <div class="card-text flex">
       <div>
-        <i class="fas fa-pen-nib text-brown"></i> 500文字
+        <i class="fas fa-pen-nib text-brown"></i>
+        <%= post.body.length %>文字
       </div>
       <div>
         <i class="fas fa-shoe-prints text-brown"></i> 100PV

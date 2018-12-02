@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @posts = params[:search] ? Post.search(search_params) : Post.all
+    @tags = Post.top_tags
   end
 
   def show
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.attributes = post_params
+    @post.assign_attributes(post_params)
     prepare_thumbnail
     prepare_post_images
     if @post.save
@@ -52,15 +54,15 @@ class PostsController < ApplicationController
 
   def prepare_post_images
     temp_images = ImageBuilder::PostImages.build(@post.body)
-    ActiveRecord::Base.transaction do
-      @post.images.destroy_all
-      temp_images.each do |image|
-        @post.images.create!(image: image.tempfile.open.binmode.read, ctype: image.mime_type)
-      end
-    end
+    @post.images.destroy_all
+    temp_images.each { |image| @post.images.new(image: image.tempfile.open.binmode.read, ctype: image.mime_type) }
   end
 
   def post_params
     params.require(:post).permit(:title, :body, :tag_list)
+  end
+
+  def search_params
+    params.require(:search).permit(:keyword, :tag)
   end
 end

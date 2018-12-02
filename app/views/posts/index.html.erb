@@ -10,16 +10,16 @@
         <i class="fas fa-book-open text-brown"></i>
         キーワードで探す
       </h5>
-      <form>
+      <%= form_with url: posts_path, method: :get, local: true do %>
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="e.g. 物語 日常">
+          <%= text_field_tag 'search[keyword]', nil, class: 'form-control', placeholder: "e.g. 物語 日常" %>
           <div class="input-group-append">
-            <button type="submit" class="btn bg-brown" type="button">
+            <%= button_tag type: 'submit', class: 'btn bg-brown' do %>
               <i class="fas fa-search"></i>
-            </button>
+            <% end %>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
     <div class="search-item">
       <h5>
@@ -27,23 +27,13 @@
         タグで探す
       </h5>
       <div class="tag-area">
-        <a href="#" class="tag">#小説</a>
-        <a href="#" class="tag">#物申す</a>
-        <a href="#" class="tag">#事件へのコメント</a>
-        <a href="#" class="tag">#男女の違い</a>
-        <a href="#" class="tag">#小説</a>
-        <a href="#" class="tag">#物申す</a>
-        <a href="#" class="tag">#男女の違い</a>
-        <a href="#" class="tag">#男女の違い</a>
-        <a href="#" class="tag">#小説</a>
-        <a href="#" class="tag">#物申す</a>
-        <a href="#" class="tag">#男女の違い</a>
+        <% @tags.each do |tag| %>
+          <%= link_to "##{tag.name}", posts_path(search: { tag: tag.name }), class: 'tag' %>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="post-list">
-    <%= render 'post_card' %>
-    <%= render 'post_card' %>
-    <%= render 'post_card' %>
+    <%= render partial: 'post_card', collection: @posts, as: :post %>
   </div>
 </div>
