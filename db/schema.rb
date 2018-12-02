@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_062905) do
+ActiveRecord::Schema.define(version: 2018_12_02_053115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2018_12_01_062905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_post_images_on_post_id"
+  end
+
+  create_table "post_page_views", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.integer "view_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_page_views_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -59,4 +67,5 @@ ActiveRecord::Schema.define(version: 2018_12_01_062905) do
   end
 
   add_foreign_key "post_images", "posts"
+  add_foreign_key "post_page_views", "posts"
 end

@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   acts_as_taggable
   has_many :images, class_name: 'PostImage', dependent: :destroy
+  has_one :page_view, class_name: 'PostPageView', dependent: :destroy
   validates :title, presence: true
   validates :body, presence: true
   validates :thumbnail, presence: true
@@ -18,4 +19,11 @@ class Post < ApplicationRecord
     return all if tag.blank?
     tagged_with(tag)
   }
+
+  def increment_page_view
+    PostPageView.where(post_id: id)
+                .first_or_initialize(post_id: id)
+                .increment(:view_count, 1)
+                .save
+  end
 end
